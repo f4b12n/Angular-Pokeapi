@@ -1,0 +1,21 @@
+@for(item of pokemonesCompleto; track item.id){
+  <mat-card class="example-card">
+    <mat-card-header style="background-color: #439b94;">
+      <div mat-card-avatar><img [src]="item.sprites.front_default" class="image-poke"></div>
+      <mat-card-title style="align-items: center; margin-left: 40px;">{{item.name}}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="propiedades">
+      <mat-card-subtitle>Altura : {{item.height}}</mat-card-subtitle>
+      <mat-card-subtitle>Peso : {{item.weight}} k.g</mat-card-subtitle>
+      <mat-card-subtitle>Tipo : {{item.types[0].type.name}}</mat-card-subtitle>
+      <mat-card-subtitle>Habilidad 1 : {{item.abilities[0].ability.name}}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="playSound(item.cries.latest)">Sonido</button>
+      <button mat-raised-button (click)="openDialog(item)">Info</button>
+      
+    </mat-card-actions>
+    
+  </mat-card>
+}
